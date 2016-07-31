@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+	 <script>
+	    var time;
+		var secondsum;
+     	function limitsale(){
+			var hours=document.getElementById("hour");
+			var minutes=document.getElementById("minute");
+			var seconds=document.getElementById("second");
+			secondsum++;
+			if(seconds.value==0){
+				seconds.value=60;
+				minutes.value=parseInt(minutes.value)-1;
+				}
+				seconds.value=parseInt(seconds.value)-1;
+				if(secondsum%3600==0){
+					hours.value=parseInt(hours.value)-1;
+					seconds.value=60;
+					minutes.value=59;
+					}
+					if(hours.value==0){
+						if(minutes.value==0){
+							if(seconds.value==0){
+								alert("抢购结束！");
+								window.clearInterval(time);
+								}
+							}
+						}
+		}
+		time=window.setInterval("limitsale()",1000);	
+     </script>
+</head>
+
+<body bgcolor="#000000" onload="limitsale()">
+	<br /><br /><br /><br /><br />
+    <center>
+    <img src="iPhone.jpg" style="width:300px;height:300px" />
+    &nbsp;&nbsp;&nbsp;
+    <input type="text" value="0" id="hour" style="width:30px;height:30px"/>
+    <font color="#FFFFFF">小时</font>
+    <input type="text" value="2" id="minute" style="width:30px;height:30px"/>
+    <font color="#FFFFFF">分钟</font>
+    <input type="text" value="0" id="second" style="width:30px;height:30px"/>
+    <font color="#FFFFFF">秒</font>
+    </center>
+</body>
+</html>
